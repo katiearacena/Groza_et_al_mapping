@@ -5,11 +5,8 @@
 #SBATCH --output=logs/CG.ME-%j.out
 #SBATCH --error=logs/CG.ME-%j.err
 #SBATCH --time=36:00:00
-#SBATCH --partition=lbarreiro
 #SBATCH --mem=80G
 #SBATCH --nodes=1
-#SBATCH --mail-user=karacena@uchicago.edu
-#SBATCH --mail-type=ALL
 ############################################
 
 CONDITION=${1}
