@@ -171,13 +171,13 @@ metadata_individuals=metadata_whole[which(!duplicated(metadata_whole$Genotyping_
 metadata_individuals=metadata_individuals[order(metadata_individuals$Genotyping_ID),]
 rownames(metadata_individuals)=metadata_individuals$Genotyping_ID
 
-## If the covariate table with genotype PC1 was not generated for SNP analysis,
-## perform PC analysis using the SNP genotypes
-if(file.exists(paste0("Outputs/QTL_mapping/",data,"/",condition,"/",res_dir,"/temp_files/",temp_dir,"/covariates.txt"))){
-  covariates=read.table(paste0("Outputs/QTL_mapping/",data,"/",condition,"/",res_dir,"/temp_files/",temp_dir,"/covariates.txt"))
+## perform PC analysis using the SNP genotypes for covariate table with PC1 of SNP genotype data.
+
+if(file.exists(paste0("Outputs/TE_mapping/",data,"/",condition,"/",res_dir,"/temp_files/",temp_dir,"/covariates.txt"))){
+  covariates=read.table(paste0("Outputs/TE_mapping/",data,"/",condition,"/",res_dir,"/temp_files/",temp_dir,"/covariates.txt"))
 }else{
   ## Set the column names of gtypes to be the samples.
-  SNPgtypes=read.table(paste0("Inputs/TE_genotypes/TE_genotypes.txt"),header = TRUE, stringsAsFactors = FALSE)
+  SNPgtypes=read.table(paste0("Inputs/SNP_genotypes/SNP_genotypes.txt"),header = TRUE, stringsAsFactors = FALSE)
   samples=colnames(SNPgtypes)
   gtypes_pca=data.frame(snp_id=rownames(SNPgtypes),SNPgtypes)
 
